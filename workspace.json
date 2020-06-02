@@ -120,6 +120,44 @@
           }
         }
       }
+    },
+    "rss": {
+      "root": "libs/rss",
+      "sourceRoot": "libs/rss/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/rss/.eslintrc",
+            "tsConfig": [
+              "libs/rss/tsconfig.lib.json",
+              "libs/rss/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/rss/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rss/jest.config.js",
+            "tsConfig": "libs/rss/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/rss",
+            "tsConfig": "libs/rss/tsconfig.lib.json",
+            "packageJson": "libs/rss/package.json",
+            "main": "libs/rss/src/index.ts",
+            "assets": ["libs/rss/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {
