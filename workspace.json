@@ -21,7 +21,7 @@
             "polyfills": "apps/blog/src/polyfills.ts",
             "tsConfig": "apps/blog/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
+            "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets",  "apps/blog/src/robots.txt"],
             "styles": ["apps/blog/src/styles.scss"],
             "scripts": []
           },
