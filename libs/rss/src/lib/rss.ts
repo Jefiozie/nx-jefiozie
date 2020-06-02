@@ -2,7 +2,7 @@ import {
   HandledRoute,
   registerPlugin,
   setMyConfig,
-  getMyConfig
+  getMyConfig,
 } from '@scullyio/scully';
 
 const baseHrefRewrite = async (
@@ -23,7 +23,7 @@ const baseHrefRewrite = async (
 };
 
 setMyConfig(baseHrefRewrite, {
-  href: '/'
+  href: '/',
 });
-
-registerPlugin('render', 'baseHrefRewrite', baseHrefRewrite);
+export const BASEHREFREWRITE = 'baseHrefRewrite';
+registerPlugin('render', BASEHREFREWRITE, baseHrefRewrite);
