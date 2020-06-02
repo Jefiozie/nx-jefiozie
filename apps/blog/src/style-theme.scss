@@ -1,0 +1,30 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$my-custom-jb-primary: mat-palette($mat-green, 400, 400, 800);
+$my-custom-jb-accent: mat-palette($mat-green, 500,700,900);
+$my-custom-jb-warn: mat-palette($mat-red);
+
+$my-custom-jb-theme: mat-light-theme(
+  $my-custom-jb-primary,
+  $my-custom-jb-accent,
+  $my-custom-jb-warn
+);
+
+//   include custom components themes
+@import "./app/app.component.scss-theme";
+@import "./app/layout/toolbar/toolbar.component.scss-theme.scss";
+@import "./app/blog/article/article.component.theme.scss";
+@import "./app/layout/navigation/navigation.component.scss-theme.scss";
+
+@mixin custom-components-theme($theme) {
+  @include jbb-root-component-theme($theme);
+  @include jbb-toolbar-component-theme($theme);
+  @include jbb-navigation-component-theme($theme);
+}
+
+@include angular-material-theme($my-custom-jb-theme);
+@include custom-components-theme($my-custom-jb-theme);

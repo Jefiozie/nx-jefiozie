@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleNav()" *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">{{
+      navOpend ? 'close' : 'menu'
+    }}</mat-icon>
+  </button>
+  <span>  A blog by Jeffrey | (@jefiozie)</span>
+  <a class="icon-right" mat-mini-fab href="./assets/rss.xml" target="_blank">
+    <mat-icon aria-label="Rss feed link">rss_feed</mat-icon>
+  </a>
+
+</mat-toolbar>

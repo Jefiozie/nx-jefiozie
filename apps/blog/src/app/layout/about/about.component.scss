@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 880px;
+  padding: 40px 40px;
+  padding-bottom: 0;
+
+  .subtitle {
+    color: gray;
+    display: block;
+    position: relative;
+    top: -20px;
+  }
+}

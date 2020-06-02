@@ -1,0 +1,25 @@
+@import "~@angular/material/theming";
+
+@mixin jbb-toolbar-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  :host {
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 880px;
+    padding: 40px 40px;
+    padding-bottom: 0;
+  }
+  h1 {
+    color: mat-color($accent);
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+  }
+}

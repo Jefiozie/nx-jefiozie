@@ -1,0 +1,6 @@
+<jbb-about>
+    <h1>Latest articles</h1>
+    <ng-container *ngFor="let page of latestArticles$ | async | slice:0:3">
+        <jbb-info-card [item]="page"></jbb-info-card>
+    </ng-container>
+</jbb-about>

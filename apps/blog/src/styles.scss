@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./style-theme.scss";
+@import "./style-defaults.scss";
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+@import "~prismjs/themes/prism-tomorrow";

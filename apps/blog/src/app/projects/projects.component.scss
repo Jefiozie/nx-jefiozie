@@ -1,0 +1,45 @@
+:host {
+  mat-card {
+    margin: 1em;
+
+    mat-card-header {
+      min-height: 20px;
+      overflow: hidden;
+      mat-card-title {
+        height: 30px;
+      }
+    }
+    mat-card-content {
+      padding-top: 1em;
+      min-height: 50px;
+    }
+    mat-card-actions {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      span {
+        flex-grow: 1;
+        flex-basis: auto;
+        border-right: 1px solid #ccc;
+        padding: 0 0.5em 0;
+        mat-icon {
+          padding: 0 0.5em 0;
+          margin: 0.1em 0;
+          position: relative;
+          top: 6px;
+        }
+      }
+
+      span:first-child {
+        padding: 0 0.5em 0 0.1em;
+        mat-icon {
+          padding: 0 0.5em 0 0em;
+        }
+      }
+      span:last-child {
+        cursor: pointer;
+        border: 0;
+      }
+    }
+  }
+}
