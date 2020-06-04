@@ -28,7 +28,14 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
       'routes'
     )}.`
   );
-  feed !== undefined ? feed : (feed = new RSS({ title: options.title }));
+  feed !== undefined
+    ? feed
+    : (feed = new RSS({
+        title: options.title,
+        site_url: options.siteUrl,
+        generator: 'Scully RSS',
+        feed_url: `${options.siteUrl}${options.rssPath}`,
+      }));
   routes.forEach((route) => {
     if (route.data && route.data.published) {
       feed.item({
@@ -36,7 +43,7 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
         description: route.data.description,
         guid: `${dropEndingSlash(options.siteUrl)}${route.route}`,
         url: `${dropEndingSlash(options.siteUrl)}${route.route}`,
-        date: route.data.date,
+        date: new Date(route.data.date),
       });
     }
   });
