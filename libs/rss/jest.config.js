@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'rss',
+  name: 'rss-plugin',
   preset: '../../jest.config.js',
   transform: {
     '^.+\\.[tj]sx?$': 'ts-jest',

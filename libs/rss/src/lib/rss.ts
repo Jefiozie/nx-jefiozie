@@ -1,29 +1,54 @@
 import {
-  HandledRoute,
-  registerPlugin,
-  setMyConfig,
   getMyConfig,
+  HandledRoute,
+  log,
+  registerPlugin,
+  scullyConfig,
 } from '@scullyio/scully';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as RSS from 'rss';
+import { dropEndingSlash, pluralizer } from './utils';
+export interface RssOptions {
+  title: string;
+  siteUrl: string;
+  rssPath: string;
+}
+let feed = undefined;
 
-const baseHrefRewrite = async (
-  html: string,
-  route: HandledRoute
-): Promise<string> => {
-  const { href } = getMyConfig(baseHrefRewrite);
-  /** if there is a predicate and it returns falsy, don't do anything */
-  if (
-    route.config?.baseHrefPredicate &&
-    !route.config?.baseHrefPredicate(html, route)
-  ) {
-    return html;
-  }
+export const rssFeedPlugin = async (routes: HandledRoute[]) => {
+  const options: RssOptions = getMyConfig(rssFeedPlugin);
 
-  console.log('heelo000');
-  return html;
+  log(``);
+  log(`Started rss plugin`);
+  log(
+    `Generating feed for ${routes.length} ${pluralizer(
+      routes.length,
+      'route',
+      'routes'
+    )}.`
+  );
+  feed !== undefined ? feed : (feed = new RSS({ title: options.title }));
+  routes.forEach((route) => {
+    if (route.data && route.data.published) {
+      feed.item({
+        title: route.data.title,
+        description: route.data.description,
+        guid: `${dropEndingSlash(options.siteUrl)}${route.route}`,
+        url: `${dropEndingSlash(options.siteUrl)}${route.route}`,
+        date: route.data.date,
+      });
+    }
+  });
+  const files = [path.join(scullyConfig.outDir, options.rssPath)];
+  const write = (file) => {
+    fs.writeFileSync(file, feed.xml());
+  };
+  files.forEach(write);
+  log(`Finished rss plugin`);
+  log(``);
+
+  return Promise.resolve('done');
 };
-
-setMyConfig(baseHrefRewrite, {
-  href: '/',
-});
-export const BASEHREFREWRITE = 'baseHrefRewrite';
-registerPlugin('render', BASEHREFREWRITE, baseHrefRewrite);
+export const rssPlugin = 'rssFeedPlugin';
+registerPlugin('routeDiscoveryDone', rssPlugin, rssFeedPlugin);

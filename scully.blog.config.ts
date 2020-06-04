@@ -1,24 +1,19 @@
-const { MinifyHtml } = require('scully-plugin-minify-html');
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
-import { setPluginConfig, ScullyConfig } from '@scullyio/scully';
+import { rssPlugin, RssOptions } from '@jefiozie/rss-plugin';
+import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
+import { MinifyHtml } from 'scully-plugin-minify-html';
 
-// THIS ONE WILL FAIL
-import * as jb from '@jefiozie/rss';
+const publicUri = 'https://jefiozie.github.io';
+setPluginConfig(rssPlugin, {
+  title: 'RSS Feed',
+  siteUrl: publicUri,
+  rssPath: '/assets/rss.xml',
+} as RssOptions);
 
-// THIS ONE IS WORKING
-// import * as jb from './dist/libs/rss';
-
-// SET CONFIG
-// setPluginConfig(jb.BASEHREFREWRITE, { href: 'a' });
 const postRenderers = [MinifyHtml];
-
-const minifyHtmlOptions = {
-  removeComments: false,
-};
-
 const SitemapPlugin = getSitemapPlugin();
 setPluginConfig(SitemapPlugin, {
-  urlPrefix: 'https://jefiozie.github.io',
+  urlPrefix: publicUri,
   sitemapFilename: 'sitemap.xml',
   changeFreq: 'monthly',
   priority: [
@@ -48,7 +43,6 @@ export const config: ScullyConfig = {
   projectRoot: './apps/blog/src',
   projectName: 'blog',
   outDir: './dist/static',
-  // defaultPostRenderers:[jb.BASEHREFREWRITE],
   routes: {
     '/articles/article/:id': {
       type: 'contentFolder',

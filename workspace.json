@@ -121,7 +121,7 @@
         }
       }
     },
-    "rss": {
+    "rss-plugin": {
       "root": "libs/rss",
       "sourceRoot": "libs/rss/src",
       "projectType": "library",
@@ -156,7 +156,29 @@
             "main": "libs/rss/src/index.ts",
             "assets": ["libs/rss/*.md"]
           }
-        }
+        },
+        "build-link": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+              "commands": [
+                  {
+                  "command": "npx nx run rss-plugin:build"
+                  },
+                  {
+                  "command": "cd dist/libs/rss"
+                  },
+                  {
+                  "command": "yarn link"
+                  },
+                  {
+                  "command": "cd ../../../"
+                  },
+                  {
+                  "command": "yarn link @jefiozie/rss-plugin"
+                  }
+              ]
+          }
+      }
       }
     }
   },
