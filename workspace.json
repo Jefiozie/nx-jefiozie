@@ -162,9 +162,6 @@
           "options": {
               "commands": [
                   {
-                  "command": "npx nx run rss-plugin:build"
-                  },
-                  {
                   "command": "cd dist/libs/rss"
                   },
                   {
