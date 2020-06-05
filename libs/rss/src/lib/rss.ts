@@ -28,6 +28,7 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
       'routes'
     )}.`
   );
+  /* eslint-disable */
   feed !== undefined
     ? feed
     : (feed = new RSS({
@@ -36,8 +37,11 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
         generator: 'Scully RSS',
         feed_url: `${options.siteUrl}${options.rssPath}`,
       }));
-  routes.forEach((route) => {
-    if (route.data && route.data.published) {
+  /* eslint-enable */
+  routes
+    .filter((route) => route.data && route.data.published)
+    .sort((a, b) => (a.data.date < b.data.date ? 1 : -1))
+    .forEach((route) => {
       feed.item({
         title: route.data.title,
         description: route.data.description,
@@ -45,8 +49,7 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
         url: `${dropEndingSlash(options.siteUrl)}${route.route}`,
         date: new Date(route.data.date),
       });
-    }
-  });
+    });
   const files = [path.join(scullyConfig.outDir, options.rssPath)];
   const write = (file) => {
     fs.writeFileSync(file, feed.xml());

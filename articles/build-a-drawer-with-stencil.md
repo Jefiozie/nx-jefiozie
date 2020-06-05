@@ -4,7 +4,7 @@ description: A simple way to build a drawer component with Stencil
 tags: [Stencil, webcomponents, showdev, webdev]
 author: Jeffrey Bosch
 published: true
-date: 2019-06-05
+date: '2019-06-05'
 ---
 
 For the past couple of weeks, I've been working on a "Design System" that is using Stencil. Today I want to share some basics on how I build a drawer with Stencil, with you, the community 🙏🏻.
