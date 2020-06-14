@@ -27,6 +27,7 @@
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "scully": "scully",
     "scully:serve": "scully serve",
+    "clean":"rm -rf ./node_modules/@jefiozie",
     "deploy": "gh-pages -d dist/static -r https://$GH_TOKEN@github.com/Jefiozie/jefiozie.github.io.git -b master"
   },
   "private": true,
