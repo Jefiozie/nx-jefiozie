@@ -35,7 +35,13 @@ jobs:
       - run: npm run symlinks
       - run: npx nx run-many --target=build --all --prod
       - run: npm run scully --sr
-      
-      - run: npm run deploy
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          repo:
+          target_branch: gh-pages
+          build_dir: dist/static
         env:
-          CI: true
+          GITHUB_REPOSITORY: ${{ secrets.GH_REPO }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
