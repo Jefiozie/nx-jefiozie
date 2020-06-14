@@ -1,0 +1,39 @@
+name: release
+
+on:
+  # Trigger the workflow on push
+  # but only for the master branch
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache builder node modules
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}${{ env.cache-name }}-
+            ${{ runner.OS }}${{ matrix.version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - run: npm install
+      - run: npx nx run rss-plugin:build
+      - run: npx nx run rss-plugin:symlink
+      - run: npx nx build blog --prod
+      - run: npm run scully --sr
+        env:
+          CI: true

@@ -157,18 +157,12 @@
             "assets": ["libs/rss/*.md"]
           }
         },
-        "build-link": {
+        "symlink": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
               "commands": [
                   {
-                  "command": "cd dist/libs/rss"
-                  },
-                  {
-                  "command": "yarn link"
-                  },
-                  {
-                  "command": "cd ../../../"
+                  "command": "cd ./dist/libs/rss && yarn link"
                   },
                   {
                   "command": "yarn link @jefiozie/rss-plugin"

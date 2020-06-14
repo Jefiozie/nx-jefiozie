@@ -26,7 +26,8 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "scully": "scully",
-    "scully:serve": "scully serve"
+    "scully:serve": "scully serve",
+    "deploy": "gh-pages -d dist/static -r https://$GITHUB_TOKEN@github.com/Jefiozie/jefiozie.github.io.git -b master"
   },
   "private": true,
   "dependencies": {
@@ -68,6 +69,7 @@
     "dotenv": "6.2.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.0.0",
+    "gh-pages": "^3.0.0",
     "jest": "25.2.3",
     "jest-preset-angular": "8.1.2",
     "prettier": "2.0.4",
