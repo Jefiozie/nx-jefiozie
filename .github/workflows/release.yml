@@ -32,9 +32,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npx nx run rss-plugin:build
-      - run: npx nx run rss-plugin:symlink
-      - run: npx nx build blog --prod
+      - run: npm run symlinks
+      - run: npx nx run-many --target=build --all --prod
       - run: npm run scully --sr
       
       - run: npm run deploy

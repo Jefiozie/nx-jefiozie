@@ -21,7 +21,11 @@
             "polyfills": "apps/blog/src/polyfills.ts",
             "tsConfig": "apps/blog/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets",  "apps/blog/src/robots.txt"],
+            "assets": [
+              "apps/blog/src/favicon.ico",
+              "apps/blog/src/assets",
+              "apps/blog/src/robots.txt"
+            ],
             "styles": ["apps/blog/src/styles.scss"],
             "scripts": []
           },
@@ -150,26 +154,13 @@
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/libs/rss",
+            "outputPath": "dist/libs/rss-plugin",
             "tsConfig": "libs/rss/tsconfig.lib.json",
             "packageJson": "libs/rss/package.json",
             "main": "libs/rss/src/index.ts",
             "assets": ["libs/rss/*.md"]
           }
-        },
-        "symlink": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-              "commands": [
-                  {
-                  "command": "cd ./dist/libs/rss && yarn link"
-                  },
-                  {
-                  "command": "yarn link @jefiozie/rss-plugin"
-                  }
-              ]
-          }
-      }
+        }
       }
     }
   },
