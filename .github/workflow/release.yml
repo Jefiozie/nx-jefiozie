@@ -24,7 +24,6 @@ jobs:
       - run: npx nx run rss-plugin:symlink
       - run: npx nx build blog --prod
       - run: npm run scully --sr
-      
       - run: npm run deploy
         env:
           CI: true
