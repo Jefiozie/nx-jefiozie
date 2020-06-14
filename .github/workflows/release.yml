@@ -21,8 +21,8 @@ jobs:
         uses: actions/cache@v1
         with:
           path: |
-              !node_modules/@jefiozie
               node_modules
+              !node_modules/@jefiozie
           key: ${{ runner.OS }}-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}${{ env.cache-name }}-
@@ -39,9 +39,8 @@ jobs:
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          repo:
-          target_branch: gh-pages
+          repo: Jefiozie/jefiozie.github.io
+          target_branch: master
           build_dir: dist/static
         env:
-          GITHUB_REPOSITORY: ${{ secrets.GH_REPO }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
