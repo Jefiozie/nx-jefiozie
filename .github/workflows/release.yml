@@ -20,20 +20,23 @@ jobs:
         id: cache
         uses: actions/cache@v1
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-${{ hashFiles('**/package-lock.json') }}
+          path: |
+              !node_modules/@jefiozie
+              node_modules
+          key: ${{ runner.OS }}-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}${{ env.cache-name }}-
             ${{ runner.OS }}${{ matrix.version }}
+      - run: npm run clean
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      
-      - run: npm install
       - run: npx nx run rss-plugin:build
       - run: npx nx run rss-plugin:symlink
       - run: npx nx build blog --prod
       - run: npm run scully --sr
+      
+      - run: npm run deploy
         env:
           CI: true
