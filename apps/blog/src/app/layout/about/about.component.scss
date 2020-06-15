@@ -13,3 +13,10 @@
     top: -20px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  :host {
+    margin: 0;
+    padding:0;
+  }
+}
