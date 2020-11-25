@@ -58,7 +58,7 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
   log(`Finished rss plugin`);
   log(``);
 
-  return Promise.resolve('done');
+  return;
 };
 export const rssPlugin = 'rssFeedPlugin';
 registerPlugin('routeDiscoveryDone', rssPlugin, rssFeedPlugin);
