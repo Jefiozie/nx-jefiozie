@@ -13,7 +13,6 @@ Most of you probably know that the Angular CLI has some CLI commands, sometimes 
 
 An Angular Builder is a function that will be executed by using a specific Angular CLI Command. Because you can run **ANY** command and can make **ANY** implementation you almost could say: _The sky is the limit by adopting Angular Builders_
 
-
 # What is an Angular Deployment Builder?
 
 In Angular CLI version 8.3 the Angular team added a new CLI command: `ng deploy`
@@ -23,7 +22,7 @@ And the most important point: It is an invitation to the community to standardiz
 
 # Why I created this Angular Builder
 
-I started the project because I was interested in the Angular Builders API. As I'm loving the way you could do a deployment of an Angular App by using [@azure/ng-deploy](http://github.com/Azure/ng-deploy-azure), I had the idea to do this for Amazon's S3 storage. In the past, I've done some work with Amazon and needed to do several steps to upload an Angular app to AWS S3. After looking at the AWS SDK and some examples on the documentation, I created the builder that we now call: ***NGX-AWS-DEPLOY***
+I started the project because I was interested in the Angular Builders API. As I'm loving the way you could do a deployment of an Angular App by using [@azure/ng-deploy](http://github.com/Azure/ng-deploy-azure), I had the idea to do this for Amazon's S3 storage. In the past, I've done some work with Amazon and needed to do several steps to upload an Angular app to AWS S3. After looking at the AWS SDK and some examples on the documentation, I created the builder that we now call: **_NGX-AWS-DEPLOY_**
 
 # How can we use it?
 
@@ -45,9 +44,9 @@ ng deploy
 
 # Roadmap?
 
-What does the future bring for this package? I'm not sure yet, I would love to see some feature issues created by the community! Maybe there are use cases I've not yet thought of so please submit your issue or feature on the [NGX-AWS-DEPLOY Repo](https://github.com/Jefiozie/ngx-aws-deploy) 
+What does the future bring for this package? I'm not sure yet, I would love to see some feature issues created by the community! Maybe there are use cases I've not yet thought of so please submit your issue or feature on the [NGX-AWS-DEPLOY Repo](https://github.com/Jefiozie/ngx-aws-deploy)
 
-Some of the ideas are: 
+Some of the ideas are:
 
 1. Credentials via environment variables [#12](https://github.com/Jefiozie/ngx-aws-deploy/issues/12)
 2. Multi-region upload
@@ -56,14 +55,12 @@ Some of the ideas are:
 
 # Thank you
 
-Thank you for reading this post. I hope you will enjoy ***NGX-AWS-DEPLOY***. A big thanks to the Angular CLI team (and everybody who helped) with creating the builders API. I love it! 👍🏻
+Thank you for reading this post. I hope you will enjoy **_NGX-AWS-DEPLOY_**. A big thanks to the Angular CLI team (and everybody who helped) with creating the builders API. I love it! 👍🏻
 
 Thanks to people who reviewed this article:
 
-* [@bjeaurn](https://twitter.com/bjeaurn)
-* [@JohannesHoppe](https://twitter.com/JohannesHoppe)
-
-
+- [@bjeaurn](https://twitter.com/bjeaurn)
+- [@JohannesHoppe](https://twitter.com/JohannesHoppe)
 
 ### _RESOURCES_
 

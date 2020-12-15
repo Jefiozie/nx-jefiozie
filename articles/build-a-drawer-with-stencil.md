@@ -57,7 +57,7 @@ Now you need to provide a project name, let's fill in `example-drawer`. And that
 After opening the project in your favorite editor open the `my-component.tsx` file and remove all of the default code and replace it with the following:
 
 ```typescript
-import { Component, Host, h, State, Method } from '@stencil/core'
+import { Component, Host, h, State, Method } from '@stencil/core';
 
 @Component({
   tag: 'my-component',
@@ -68,7 +68,7 @@ export class MyComponent {
   /**
    * Show or hide the drawer
    */
-  @State() open = true
+  @State() open = true;
 }
 ```
 
@@ -78,7 +78,7 @@ First, we set up some internal data with the use of `@State`. When changing the 
 With this, we are going to toggle a CSS class.
 
 ```typescript
-import { Component, Host, h, State, Method } from '@stencil/core'
+import { Component, Host, h, State, Method } from '@stencil/core';
 
 @Component({
   tag: 'my-component',
@@ -86,11 +86,11 @@ import { Component, Host, h, State, Method } from '@stencil/core'
   shadow: true,
 })
 export class MyComponent {
-  @State() open = true
+  @State() open = true;
 
   @Method()
   async toggleDrawer() {
-    this.open = !this.open
+    this.open = !this.open;
   }
 }
 ```
@@ -100,7 +100,7 @@ export class MyComponent {
 We have added a `@Method` decorator and a method that toggles the property `open`. Doing this allows us to call the `toggleDrawer` method from the outside of the component.
 
 ```typescript
-import { Component, Host, h, State, Method } from '@stencil/core'
+import { Component, Host, h, State, Method } from '@stencil/core';
 
 @Component({
   tag: 'my-component',
@@ -108,11 +108,11 @@ import { Component, Host, h, State, Method } from '@stencil/core'
   shadow: true,
 })
 export class MyComponent {
-  @State() open = true
+  @State() open = true;
 
   @Method()
   async toggleDrawer() {
-    this.open = !this.open
+    this.open = !this.open;
   }
   render() {
     return (
@@ -128,7 +128,7 @@ export class MyComponent {
           </div>
         </div>
       </Host>
-    )
+    );
   }
 }
 ```
@@ -191,7 +191,6 @@ Now open the `my-component.css` file and replace the code with:
 
 &nbsp;
 
-
 We will focus on the `open` and `left` behaviors. In our `drawer` class we have defined `transform: translate3d(-100%, 0, 0);`. This will place our div out of the view. When we append the `open` class we will set `transform` to `none`, now we have our div back on the screen.
 
 Our other focus point is the `left` class. Because the width of our drawer is fixed at `280px` we can use `margin-left` to "slide" to the left when this class is appended.
@@ -250,7 +249,7 @@ Yet because we made changes we should reflect these changes in the `index.html` 
 
 &nbsp;
 
-What did we change? We have added an *unsorted list* that will be placed in slot: `drawer-content` and we have a `div` that will be placed in slot: `content`. To toggle our drawer we have added a simple button that `on-click` will call the `toggleDrawer` method on our `drawer`
+What did we change? We have added an _unsorted list_ that will be placed in slot: `drawer-content` and we have a `div` that will be placed in slot: `content`. To toggle our drawer we have added a simple button that `on-click` will call the `toggleDrawer` method on our `drawer`
 
 ## Summary
 
@@ -267,4 +266,3 @@ At last, a thank you to some people how reviewed my article
 
 - [Wes Grimes (@wesgrimes)](https://twitter.com/wesgrimes)
 - [Romulo Cintra (@romulocintra)](https://twitter.com/romulocintra)
-

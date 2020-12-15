@@ -1,4 +1,3 @@
-
 export const log = (message, ...optionalParams) => {
   console.log(`${message}`, ...optionalParams);
 };
@@ -10,4 +9,3 @@ export const pluralizer = (num, singular, plural) => {
 
 export const dropEndingSlash = (str) =>
   str.endsWith('/') ? str.slice(0, -1) : str;
-  

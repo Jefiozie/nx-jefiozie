@@ -1,5 +1,6 @@
 ---
 title: 'DevOps, from Requirement to Production'
+description: 'description 1'
 date: '2019-02-18'
 tags: ['angular', 'devops']
 published: true
@@ -10,7 +11,4 @@ In the video (that is in dutch) I present a perspective on how at my current com
 
 If you have any question just [click on this link](https://github.com/Jefiozie/personalblog/issues/new) and I will try and answer your question.
 
-
 [![From Requirement to Production](https://img.youtube.com/vi/mglACMD7kUM/0.jpg)](https://youtu.be/mglACMD7kUM)
-
-

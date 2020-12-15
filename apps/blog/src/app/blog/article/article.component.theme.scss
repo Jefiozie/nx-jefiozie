@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 
 @mixin jbb-toolbar-component-theme($theme) {
   $primary: map-get($theme, primary);
