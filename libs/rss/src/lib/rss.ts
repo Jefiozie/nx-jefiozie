@@ -35,11 +35,11 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
   feed !== undefined
     ? feed
     : (feed = new RSS({
-        title: options.title,
-        site_url: options.siteUrl,
-        generator: 'Scully RSS',
-        feed_url: `${options.siteUrl}${options.rssPath}`,
-      }));
+      title: options.title,
+      site_url: options.siteUrl,
+      generator: 'Scully RSS',
+      feed_url: `${options.siteUrl}${options.rssPath}`,
+    }));
   /* eslint-enable */
   routes
     .filter((route) => route.data && route.data.published)
@@ -47,15 +47,19 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
     .forEach((route) => {
       const mdString = fs.readFileSync(route.templateFile, 'utf8').toString();
       const converter = new showdown.Converter();
-      const articleHTML = converter.makeHtml(mdString);
-      console.error(articleHTML);
+      mdString.slice(
+        getPosition(mdString, '---', 2) + 3,
+        mdString.length - 1
+      );
+      const htmlContent = converter.makeHtml(mdString);
 
       feed.item({
         title: route.data.title,
-        description: articleHTML,
+        description: route.data.description,
         guid: `${dropEndingSlash(options.siteUrl)}${route.route}`,
         url: `${dropEndingSlash(options.siteUrl)}${route.route}`,
         date: new Date(route.data.date),
+        custom_elements: [{ "content:encoded": htmlContent }]
       });
     });
   const files = [path.join(scullyConfig.outDir, options.rssPath)];
@@ -70,3 +74,6 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
 };
 export const rssPlugin = 'rssFeedPlugin';
 registerPlugin('routeDiscoveryDone', rssPlugin, rssFeedPlugin);
+function getPosition(string, subString, index) {
+  return string.split(subString, index).join(subString).length;
+}
