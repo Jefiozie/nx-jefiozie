@@ -3,11 +3,11 @@ import {
   HandledRoute,
   log,
   registerPlugin,
-  scullyConfig,
+  scullyConfig
 } from '@scullyio/scully';
+import { Feed } from "feed";
 import * as fs from 'fs';
 import * as path from 'path';
-import * as RSS from 'rss';
 import { dropEndingSlash, pluralizer } from './utils';
 
 const showdown = require('showdown');
@@ -34,11 +34,23 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
   /* eslint-disable */
   feed !== undefined
     ? feed
-    : (feed = new RSS({
+    : (feed = new Feed({
       title: options.title,
-      site_url: options.siteUrl,
+      id: options.siteUrl,
+      description: "This is my personal feed!",
+      copyright: `All rights reserved ${new Date().getFullYear()}, Jeffrey Bosch`,
+      link: options.siteUrl,
+      updated: new Date(),
       generator: 'Scully RSS',
-      feed_url: `${options.siteUrl}${options.rssPath}`,
+      favicon: `${options.siteUrl}/favicon.ico`,
+      feedLinks: {
+        rss: `${options.siteUrl}${options.rssPath}`,
+      },
+      author: {
+        name: "Jeffrey Bosch",
+        email: "jefiozie.bosch@gmail.com",
+        link: "https://github.com/jefiozie"
+      }
     }));
   /* eslint-enable */
   routes
@@ -53,18 +65,18 @@ export const rssFeedPlugin = async (routes: HandledRoute[]) => {
       );
       const htmlContent = converter.makeHtml(mdString);
 
-      feed.item({
+      feed.addItem({
         title: route.data.title,
         description: route.data.description,
         guid: `${dropEndingSlash(options.siteUrl)}${route.route}`,
         url: `${dropEndingSlash(options.siteUrl)}${route.route}`,
         date: new Date(route.data.date),
-        custom_elements: [{ "content:encoded": htmlContent }]
+        content: htmlContent
       });
     });
   const files = [path.join(scullyConfig.outDir, options.rssPath)];
   const write = (file) => {
-    fs.writeFileSync(file, feed.xml());
+    fs.writeFileSync(file, feed.rss2());
   };
   files.forEach(write);
   log(`Finished rss plugin`);

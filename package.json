@@ -45,6 +45,7 @@
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "latest",
     "core-js": "^2.5.4",
+    "feed": "^4.2.1",
     "prismjs": "^1.20.0",
     "rxjs": "6.5.5",
     "showdown": "^1.9.1",
