@@ -9,3 +9,25 @@ export const pluralizer = (num, singular, plural) => {
 
 export const dropEndingSlash = (str) =>
   str.endsWith('/') ? str.slice(0, -1) : str;
+
+export function nth_occurrence(text, searchString, nth) {
+  const firstIndex = text.indexOf(searchString);
+  const lengthUpToFirstIndex = firstIndex + 1;
+
+  if (nth === 1) {
+    return firstIndex;
+  } else {
+    const stringAfterFirstOccurrence = text.slice(lengthUpToFirstIndex);
+    const nextOccurrence = nth_occurrence(
+      stringAfterFirstOccurrence,
+      searchString,
+      nth - 1
+    );
+
+    if (nextOccurrence === -1) {
+      return -1;
+    } else {
+      return lengthUpToFirstIndex + nextOccurrence;
+    }
+  }
+}
