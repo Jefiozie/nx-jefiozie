@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jefiozie/rss-plugin": ["libs/rss/src/index.ts"]
+      "@jefiozie/rss-plugin": ["libs/rss/src/index.ts"],
+      "@jefiozie/read-time": ["libs/read-time/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

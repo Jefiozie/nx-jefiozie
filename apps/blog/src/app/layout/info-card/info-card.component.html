@@ -1,18 +1,22 @@
 <div class="hoffset">
-    <mat-card [routerLink]="item.route" [state]="{ title:item.title}">
-        <mat-card-title>{{item.title}}</mat-card-title>
-        <mat-card-subtitle *ngIf="">Date: {{item.date |date:'dd-MM-yyyy' }}</mat-card-subtitle>
-        <mat-card-content>
-            {{item.description ? item.description : 'No description' | slice:0:50}}
-        </mat-card-content>
-        <mat-card-actions>
-            <ng-container *ngFor="let tag of item.tags">
-                <span>
-                    <mat-icon color="accent">label</mat-icon>
-                    {{tag}}
-                </span>
-            </ng-container>
-        </mat-card-actions>
-    </mat-card>
-
+  <mat-card [routerLink]="item.route" [state]="{ title: item.title }">
+    <mat-card-title>{{ item.title }}</mat-card-title>
+    <mat-card-subtitle>👀 {{ item.readingTime }} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="item.date"
+      >Date: {{ item.date | date: 'dd-MM-yyyy' }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      {{
+        item.description ? item.description : ('No description' | slice: 0:50)
+      }}
+    </mat-card-content>
+    <mat-card-actions>
+      <ng-container *ngFor="let tag of item.tags">
+        <span>
+          <mat-icon color="accent">label</mat-icon>
+          {{ tag }}
+        </span>
+      </ng-container>
+    </mat-card-actions>
+  </mat-card>
 </div>

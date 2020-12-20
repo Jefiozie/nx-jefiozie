@@ -37,7 +37,9 @@ export class ArticleComponent implements AfterViewChecked {
         ),
         map((articles) => articles[0])
       )
-      .subscribe((article) => (this.title = article.title));
+      .subscribe((article) => {
+        this.title = article.title;
+      });
   }
 
   ngAfterViewChecked() {
