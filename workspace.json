@@ -26,7 +26,9 @@
               "apps/blog/src/assets",
               "apps/blog/src/robots.txt"
             ],
-            "styles": ["apps/blog/src/styles.scss"],
+            "styles": [
+              "apps/blog/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -40,7 +42,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -58,7 +59,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -84,7 +88,10 @@
               "apps/blog/tsconfig.app.json",
               "apps/blog/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/blog/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/blog/**"
+            ]
           }
         },
         "test": {
@@ -94,7 +101,10 @@
             "tsConfig": "apps/blog/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "apps/blog/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/apps/blog"
+          ]
         }
       }
     },
@@ -119,8 +129,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/blog-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/blog-e2e/**"]
+            "tsConfig": [
+              "apps/blog-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/blog-e2e/**"
+            ]
           }
         }
       }
@@ -140,7 +155,10 @@
               "libs/rss/tsconfig.lib.json",
               "libs/rss/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/rss/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/rss/**"
+            ]
           }
         },
         "test": {
@@ -149,7 +167,10 @@
             "jestConfig": "libs/rss/jest.config.js",
             "tsConfig": "libs/rss/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/libs/rss"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -158,8 +179,13 @@
             "tsConfig": "libs/rss/tsconfig.lib.json",
             "packageJson": "libs/rss/package.json",
             "main": "libs/rss/src/index.ts",
-            "assets": ["libs/rss/*.md"]
-          }
+            "assets": [
+              "libs/rss/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     }

@@ -38,6 +38,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
+migrations.json
+
 #scully
 scully.blog.config.js
 scully.log
