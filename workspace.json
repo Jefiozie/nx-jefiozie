@@ -26,9 +26,7 @@
               "apps/blog/src/assets",
               "apps/blog/src/robots.txt"
             ],
-            "styles": [
-              "apps/blog/src/styles.scss"
-            ],
+            "styles": ["apps/blog/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -60,9 +58,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -88,10 +84,7 @@
               "apps/blog/tsconfig.app.json",
               "apps/blog/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/blog/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/blog/**"]
           }
         },
         "test": {
@@ -102,9 +95,7 @@
             "passWithNoTests": true,
             "setupFile": "apps/blog/src/test-setup.ts"
           },
-          "outputs": [
-            "coverage/apps/blog"
-          ]
+          "outputs": ["coverage/apps/blog"]
         }
       }
     },
@@ -129,13 +120,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/blog-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/blog-e2e/**"
-            ]
+            "tsConfig": ["apps/blog-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/blog-e2e/**"]
           }
         }
       }
@@ -155,10 +141,7 @@
               "libs/rss/tsconfig.lib.json",
               "libs/rss/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/rss/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/rss/**"]
           }
         },
         "test": {
@@ -168,9 +151,7 @@
             "tsConfig": "libs/rss/tsconfig.spec.json",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/rss"
-          ]
+          "outputs": ["coverage/libs/rss"]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -179,13 +160,49 @@
             "tsConfig": "libs/rss/tsconfig.lib.json",
             "packageJson": "libs/rss/package.json",
             "main": "libs/rss/src/index.ts",
-            "assets": [
-              "libs/rss/*.md"
-            ]
+            "assets": ["libs/rss/*.md"]
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
+        }
+      }
+    },
+    "read-time": {
+      "root": "libs/read-time",
+      "sourceRoot": "libs/read-time/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/read-time/.eslintrc",
+            "tsConfig": [
+              "libs/read-time/tsconfig.lib.json",
+              "libs/read-time/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/read-time/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/read-time/jest.config.js",
+            "tsConfig": "libs/read-time/tsconfig.spec.json",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/read-time"]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/read-time",
+            "tsConfig": "libs/read-time/tsconfig.lib.json",
+            "packageJson": "libs/read-time/package.json",
+            "main": "libs/read-time/src/index.ts",
+            "assets": ["libs/read-time/*.md"]
+          },
+          "outputs": ["{options.outputPath}"]
         }
       }
     }

@@ -28,6 +28,9 @@
     },
     "rss-plugin": {
       "tags": []
+    },
+    "read-time": {
+      "tags": []
     }
   }
 }

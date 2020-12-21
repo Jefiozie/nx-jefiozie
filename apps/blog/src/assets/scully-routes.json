@@ -1,1 +1,72 @@
-[{"route":"/"},{"route":"/home"},{"route":"/articles"},{"route":"/articles/article/automate-community-website","title":"Automate your community website easily with automation and Scully","description":"You can update your community website easily with automation and Scully","date":"2020-11-29","tags":["angular","scully","automation","showdev"],"published":true,"sourceFile":"automate-community-website.md"},{"route":"/articles/article/build-a-drawer-with-stencil","title":"Building a drawer with Stencil","description":"A simple way to build a drawer component with Stencil","tags":["Stencil","webcomponents","showdev","webdev"],"author":"Jeffrey Bosch","published":true,"date":"2019-06-05","sourceFile":"build-a-drawer-with-stencil.md"},{"route":"/articles/article/component-budgets","title":"A new type of Angular budget on the block","date":"2020-03-10T13:40:16","description":"We will look at the new budget that is added on the Angular CLI.","tags":["Angular","CSS","Angular CLI"],"sourceFile":"component-budgets.md"},{"route":"/articles/article/first-blog","title":"First post","date":"2019-01-04","published":true,"sourceFile":"first-blog.md"},{"route":"/articles/article/journey-to-devops","title":"DevOps, from Requirement to Production","description":"description 1","date":"2019-02-18","tags":["angular","devops"],"published":true,"sourceFile":"journey-to-devops.md"},{"route":"/articles/article/ngx-aws-deploy","title":"Introducing NGX-AWS-DEPLOY: easily deploy your Angular app to AWS S3 from the Angular CLI","date":"2020-01-13","tags":["angular","builder","deploy aws"],"published":true,"sourceFile":"ngx-aws-deploy.md"},{"route":"/articles/article/working-with-nx","title":"#TIL: Working with NX","date":"2019-01-14","tags":["angular","NX"],"published":true,"sourceFile":"working-with-nx.md"},{"route":"/projects"}]
+[
+  { "route": "/" },
+  { "route": "/home" },
+  { "route": "/articles" },
+  {
+    "route": "/articles/article/automate-community-website",
+    "title": "Automate your community website easily with automation and Scully",
+    "description": "You can update your community website easily with automation and Scully",
+    "date": "2020-11-29",
+    "tags": ["angular", "scully", "automation", "showdev"],
+    "published": true,
+    "sourceFile": "automate-community-website.md",
+    "readingTime": 3.575
+  },
+  {
+    "route": "/articles/article/build-a-drawer-with-stencil",
+    "title": "Building a drawer with Stencil",
+    "description": "A simple way to build a drawer component with Stencil",
+    "tags": ["Stencil", "webcomponents", "showdev", "webdev"],
+    "author": "Jeffrey Bosch",
+    "published": true,
+    "date": "2019-06-05",
+    "sourceFile": "build-a-drawer-with-stencil.md",
+    "readingTime": 5.75
+  },
+  {
+    "route": "/articles/article/component-budgets",
+    "title": "A new type of Angular budget on the block",
+    "date": "2020-03-10T13:40:16",
+    "description": "We will look at the new budget that is added on the Angular CLI.",
+    "tags": ["Angular", "CSS", "Angular CLI"],
+    "sourceFile": "component-budgets.md",
+    "readingTime": 2.705
+  },
+  {
+    "route": "/articles/article/first-blog",
+    "title": "First post",
+    "date": "2019-01-04",
+    "published": true,
+    "sourceFile": "first-blog.md",
+    "readingTime": 1
+  },
+  {
+    "route": "/articles/article/journey-to-devops",
+    "title": "DevOps, from Requirement to Production",
+    "description": "description 1",
+    "date": "2019-02-18",
+    "tags": ["angular", "devops"],
+    "published": true,
+    "sourceFile": "journey-to-devops.md",
+    "readingTime": 1
+  },
+  {
+    "route": "/articles/article/ngx-aws-deploy",
+    "title": "Introducing NGX-AWS-DEPLOY: easily deploy your Angular app to AWS S3 from the Angular CLI",
+    "date": "2020-01-13",
+    "tags": ["angular", "builder", "deploy aws"],
+    "published": true,
+    "sourceFile": "ngx-aws-deploy.md",
+    "readingTime": 2.735
+  },
+  {
+    "route": "/articles/article/working-with-nx",
+    "title": "#TIL: Working with NX",
+    "date": "2019-01-14",
+    "tags": ["angular", "NX"],
+    "published": true,
+    "sourceFile": "working-with-nx.md",
+    "readingTime": 1
+  },
+  { "route": "/projects" }
+]
