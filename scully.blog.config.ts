@@ -1,5 +1,5 @@
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
-import { readTimePlugin, ReadTimePluginOptions } from '@jefiozie/read-time';
+import { timeToRead, timeToReadOptions } from '@jefiozie/read-time';
 import { RssOptions, rssPlugin } from '@jefiozie/rss-plugin';
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import { MinifyHtml } from 'scully-plugin-minify-html';
@@ -11,9 +11,9 @@ setPluginConfig(rssPlugin, {
   rssPath: '/assets/rss.xml',
 } as RssOptions);
 
-setPluginConfig(readTimePlugin, {
+setPluginConfig(timeToRead, {
   path: '/articles/article'
-} as ReadTimePluginOptions);
+} as timeToReadOptions);
 
 const postRenderers = [MinifyHtml];
 const SitemapPlugin = getSitemapPlugin();

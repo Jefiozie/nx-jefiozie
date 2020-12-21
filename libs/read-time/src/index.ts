@@ -1,2 +1,2 @@
-export { readTimeFunc, readTimePlugin, ReadTimePluginOptions } from './lib/readTime';
+export { timeToReadFunc, timeToRead, timeToReadOptions } from './lib/time-to-read';
 

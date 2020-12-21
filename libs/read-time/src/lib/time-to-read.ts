@@ -2,12 +2,12 @@ import { getMyConfig, HandledRoute, registerPlugin } from '@scullyio/scully';
 import * as fs from 'fs';
 import * as readingTime from 'reading-time';
 
-export const readTimePlugin = 'readTimePlugin';
-export interface ReadTimePluginOptions {
+export const timeToRead = 'timeToRead';
+export interface timeToReadOptions {
   path: string
 }
-export const readTimeFunc = async (routes: HandledRoute[]) => {
-  const options: ReadTimePluginOptions = getMyConfig(readTimeFunc);
+export const timeToReadFunc = async (routes: HandledRoute[]) => {
+  const options: timeToReadOptions = getMyConfig(timeToReadFunc);
   return routes.map((route) => {
     if (route.route.startsWith(options.path)) {
       const content = fs.readFileSync(route.templateFile).toString('utf-8');
@@ -24,4 +24,4 @@ export const readTimeFunc = async (routes: HandledRoute[]) => {
     return route;
   });
 }
-registerPlugin('routeProcess', readTimePlugin, readTimeFunc);
+registerPlugin('routeProcess', timeToRead, timeToReadFunc);
