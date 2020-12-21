@@ -166,9 +166,9 @@
         }
       }
     },
-    "read-time": {
-      "root": "libs/read-time",
-      "sourceRoot": "libs/read-time/src",
+    "time-to-read": {
+      "root": "libs/time-to-read",
+      "sourceRoot": "libs/time-to-read/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -176,31 +176,31 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "libs/read-time/.eslintrc",
+            "config": "libs/time-to-read/.eslintrc",
             "tsConfig": [
-              "libs/read-time/tsconfig.lib.json",
-              "libs/read-time/tsconfig.spec.json"
+              "libs/time-to-read/tsconfig.lib.json",
+              "libs/time-to-read/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/read-time/**"]
+            "exclude": ["**/node_modules/**", "!libs/time-to-read/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/read-time/jest.config.js",
-            "tsConfig": "libs/read-time/tsconfig.spec.json",
+            "jestConfig": "libs/time-to-read/jest.config.js",
+            "tsConfig": "libs/time-to-read/tsconfig.spec.json",
             "passWithNoTests": true
           },
-          "outputs": ["coverage/libs/read-time"]
+          "outputs": ["coverage/libs/time-to-read"]
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/libs/read-time",
-            "tsConfig": "libs/read-time/tsconfig.lib.json",
-            "packageJson": "libs/read-time/package.json",
-            "main": "libs/read-time/src/index.ts",
-            "assets": ["libs/read-time/*.md"]
+            "outputPath": "dist/libs/time-to-read",
+            "tsConfig": "libs/time-to-read/tsconfig.lib.json",
+            "packageJson": "libs/time-to-read/package.json",
+            "main": "libs/time-to-read/src/index.ts",
+            "assets": ["libs/time-to-read/*.md"]
           },
           "outputs": ["{options.outputPath}"]
         }

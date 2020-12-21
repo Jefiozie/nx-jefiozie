@@ -1,5 +1,5 @@
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
-import { timeToRead, timeToReadOptions } from '@jefiozie/read-time';
+import { timeToRead, timeToReadOptions } from '@jefiozie/time-to-read';
 import { RssOptions, rssPlugin } from '@jefiozie/rss-plugin';
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import { MinifyHtml } from 'scully-plugin-minify-html';
