@@ -21,6 +21,7 @@ declare var ng: any;
 })
 export class ArticleComponent implements AfterViewChecked {
   title: string;
+  readingTime: any;
   constructor(
     private route: ActivatedRoute,
     private readonly articleService: ArticlesService,
@@ -39,6 +40,7 @@ export class ArticleComponent implements AfterViewChecked {
       )
       .subscribe((article) => {
         this.title = article.title;
+        this.readingTime = article?.readingTime;
       });
   }
 

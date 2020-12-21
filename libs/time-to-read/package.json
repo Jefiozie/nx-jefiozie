@@ -1,6 +1,6 @@
 {
   "name": "@jefiozie/scully-plugin-time-to-read",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "maintainers": [
     "Jeffrey Bosch <jefiozie.bosch@gmail.com> (https://jefiozie.github.io)"
   ],
@@ -9,6 +9,10 @@
     "url": "https://github.com/Jefiozie/nx-jefiozie/tree/master/libs/time-to-read"
   },
   "peerDependencies": {
+    "@scullyio/scully": "*",
+    "reading-time": "^1.2.1"
+  },
+  "dependencies": {
     "@scullyio/scully": "*",
     "reading-time": "^1.2.1"
   },
