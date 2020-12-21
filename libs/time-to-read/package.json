@@ -1,5 +1,26 @@
 {
-  "name": "@jefiozie/timetoread",
-  "version": "0.0.1",
+  "name": "@jefiozie/scully-plugin-time-to-read",
+  "version": "1.0.0",
+  "maintainers": [
+    "Jeffrey Bosch <jefiozie.bosch@gmail.com> (https://jefiozie.github.io)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jefiozie/nx-jefiozie/tree/master/libs/time-to-read"
+  },
+  "peerDependencies": {
+    "@scullyio/scully": "*",
+    "reading-time": "^1.2.1"
+  },
+  "keywords": [
+    "angular",
+    "scully",
+    "scully-plugin",
+    "time"
+  ],
+  "contributors": [
+    "Jeffrey Bosch <jefiozie.bosch@gmail.com> (https://jefiozie.github.io)"
+  ],
+  "author": "Jeffrey Bosch",
   "license": "MIT"
 }
