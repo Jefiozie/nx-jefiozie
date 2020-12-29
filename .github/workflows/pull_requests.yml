@@ -1,0 +1,36 @@
+name: pull_request
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, reopened, synchronize]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache builder node modules
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: |
+              node_modules
+              !node_modules/@jefiozie
+          key: ${{ runner.OS }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}${{ env.cache-name }}-
+            ${{ runner.OS }}${{ matrix.version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run symlinks
+      - run: npx nx run-many --target=build --all --prod
+      - run: npm run scully --sr
