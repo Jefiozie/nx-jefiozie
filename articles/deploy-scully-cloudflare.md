@@ -1,15 +1,13 @@
 ---
 title: 'Deploy your Angular app with Scully and Cloudflare Pages'
 description: 'Deploy your Angular app with Scully and Cloudflare Pages'
-date: '2020-03-15'
+date: '2021-03-15'
 tags:
     - angular
     - scully
     - cloudflare
     - showdev
-published: false
-slugs:
-    - ___UNPUBLISHED___km9mbtmt_FB3fC3qc6oclYuQRXEWIuV1mbzKvVBPX
+published: true
 ---
 
 In this article, we will introduce you how to deploy your Angular app with Scully to Cloudflare pages.
