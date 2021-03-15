@@ -12,8 +12,8 @@ slugs:
     - ___UNPUBLISHED___km9mbtmt_FB3fC3qc6oclYuQRXEWIuV1mbzKvVBPX
 ---
 
-In this article we will introduce you how to deploy your Angular app with Scully to Cloudflare pages.
-This article is for people who are interested how to setup a JamStack app with Angular, Scully and Cloudflare pages.
+In this article, we will introduce you how to deploy your Angular app with Scully to Cloudflare pages.
+This article is for people who are interested in how to set up a Jamstack app with Angular, Scully, and Cloudflare pages.
 
 <pre>
  ❗ Pre-requisites ❗
@@ -24,27 +24,27 @@ This article is for people who are interested how to setup a JamStack app with A
 
 # What is Cloudflare pages
 
-Cloudflare Pages is the solution for people that are using JamStack frameworks. Cloudflare Pages easily integrate with Github si that when you push a new version, Cloudflare automatically starts builder and deploying your app on its network.
+Cloudflare Pages is the solution for people that are using Jamstack frameworks. Cloudflare Pages easily integrate with Github si that when you push a new version, Cloudflare automatically starts builder and deploying your app on its network.
 
-If you’re not familiar with JAMstack, it’s a popular way of developing and deploying websites at scale. <!-- JAMSTACK RESOURCE --->
+If you’re not familiar with JAMstack, it’s a popular way of developing and deploying websites at scale. You can look at this resource for more information about the Jamstack [link][jamstack]
 
-Coming back to Cloudflare Pages, as we said earlier it integrates with GitHub repositories if you’re hosting your source code on that platform. Once your site is configured, you can preview each commit from Cloudflare’s interface — each commit gets its own unique URL and there’s a preview environment.
+Coming back to Cloudflare Pages, as we said earlier it integrates with GitHub repositories if you’re hosting your source code on that platform. Once your site is configured, you can preview each commit from Cloudflare’s interface — each commit gets a unique URL and there’s a preview environment.
 
 You can collaborate with other Cloudflare users by inviting them to your Pages project. When your site looks good in the preview branch, you can push it to the production branch.
 
-So in summary, Cloudflare Pages let's you easily deploy your app without any hustle.
+So in summary, Cloudflare Pages lets you easily deploy your app without any hustle.
 
-# Setup you Angular app with Scully
+# Setup your Angular app with Scully
 
 Before we are setting up our Angular app, let's have a quick look at Scully.
 
 Scully is the best static site generator for Angular projects looking to embrace the Jamstack.
-It will use your application and will create a static `index.html` for each of your pages/routes. Each and every `index.html` will have the content already there, and this will make your application show instantly for the user. Also, this will make your application very SEO friendly. On top of this, your SPA will still function as it did before.
-A big advance of Scully is that it has an easy to use and extend plugins system that will allow you to manipulate routes and content.
+It will use your application and will create a static `index.html` for each of your pages/routes. Every `index.html` will have the content already there, and this will make your application show instantly for the user. Also, this will make your application very SEO-friendly. On top of this, your SPA will still function as it did before.
+A big advance of Scully is that it has an easy-to-use and extend plugins system that will allow you to manipulate routes and content.
 
-For this article we will setup a really simple app, just so that we will learn Cloudflare Pages.
+For this article, we will set up a really simple app, just so that we will learn Cloudflare Pages.
 
-Before we are getting started, go to Github and create a new repo, you can also go to `https://repo.new` this is a easy way to create a new repository at Github.
+Before we are getting started, go to Github and create a new repo, you can also go to `https://repo.new` this is an easy way to create a new repository at Github.
 
 Clone the repo to your local machine, now let's continue by setting up a new Angular project.
 
@@ -110,7 +110,7 @@ We are now ready to connect or freshly created app with Cloudflare pages.
 
 ![Preview of Connect Github](./assets/cloudflare/connect_github.png)
 
-5. When you successfully connected to Github, you can choose a repository. In our example I'm selecting `demo-cloudflare-pages`
+5. When you successfully connected to Github, you can choose a repository. In our example, I'm selecting `demo-cloudflare-pages`
 
 6. After selecting the project, click on **Begin Setup**
 
@@ -154,7 +154,7 @@ puppeteerLaunchOptions: {
 
 4. Now commit and push the changes to the Github repo
 
-5. Cloudflare will automaticcly pick up the changes, let's go back to our Cloudflare project and we will see it is building our app:
+5. Cloudflare will automatically pick up the changes, let's go back to our Cloudflare project and we will see it is building our app:
 
 ![Preview of Build settings](./assets/cloudflare/cloudflare_building.png)
 
@@ -164,9 +164,9 @@ puppeteerLaunchOptions: {
 
 # Summary
 
-In this article we have made our Angular app a Jamstack app with help of Scully and deployed it with Cloudflare pages! Below some resources that I found helpful when using Cloudflare pages and Scully. 
+In this article, we have made our Angular app a Jamstack app with help of Scully and deployed it with Cloudflare pages! Below some resources that I found helpful when using Cloudflare pages and Scully. You can find the example repo [here][repo].
 
-My twitter profile can be found at [@jefiozie][@jefiozie]
+If you have any questions send me DM via my twitter profile [@jefiozie][@jefiozie]
  
 # Resources
 
@@ -178,3 +178,4 @@ My twitter profile can be found at [@jefiozie][@jefiozie]
 [repo]: https://github.com/Jefiozie/demo-cloudflare-pages
 [scully]: https://scully.io/
 [cloudflarepages]: https://pages.cloudflare.com/
+[jamstack]: https://Jamstack.org/
