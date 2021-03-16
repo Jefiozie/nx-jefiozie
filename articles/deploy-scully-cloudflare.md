@@ -10,21 +10,22 @@ tags:
 published: true
 ---
 
-In this article, we will introduce you how to deploy your Angular app with Scully to Cloudflare pages.
-This article is for people who are interested in how to set up a Jamstack app with Angular, Scully, and Cloudflare pages.
+In this article, we will introduce you to Scully and explain how to deploy your Angular app with Scully to Cloudflare pages.
+This article is for people who are interested in setting up a JAMstack app with Angular, Scully, and Cloudflare pages.
 
 <pre>
  ❗ Pre-requisites ❗
  
 - You should have some basic knowledge of Angular
 - You should have a Cloudflare account
+- You should have a Github account
 </pre>
 
 # What is Cloudflare pages
 
-Cloudflare Pages is the solution for people that are using Jamstack frameworks. Cloudflare Pages easily integrate with Github si that when you push a new version, Cloudflare automatically starts builder and deploying your app on its network.
+Cloudflare Pages is the solution for people that use JAMstack frameworks. Cloudflare Pages easily integrates with Github in a way that when you push a new version, Cloudflare automatically starts building and deploying your app on its network.
 
-If you’re not familiar with JAMstack, it’s a popular way of developing and deploying websites at scale. You can look at this resource for more information about the Jamstack [link][jamstack]
+If you’re not familiar with JAMstack, it’s a popular way of developing and deploying websites at scale. You can look at this resource for more information about the JAMstack [link][jamstack]
 
 Coming back to Cloudflare Pages, as we said earlier it integrates with GitHub repositories if you’re hosting your source code on that platform. Once your site is configured, you can preview each commit from Cloudflare’s interface — each commit gets a unique URL and there’s a preview environment.
 
@@ -34,15 +35,15 @@ So in summary, Cloudflare Pages lets you easily deploy your app without any hust
 
 # Setup your Angular app with Scully
 
-Before we are setting up our Angular app, let's have a quick look at Scully.
+Before we set up our Angular app, let's have a quick look at Scully.
 
-Scully is the best static site generator for Angular projects looking to embrace the Jamstack.
+Scully is the best static site generator for Angular projects looking to embrace the JAMstack.
 It will use your application and will create a static `index.html` for each of your pages/routes. Every `index.html` will have the content already there, and this will make your application show instantly for the user. Also, this will make your application very SEO-friendly. On top of this, your SPA will still function as it did before.
-A big advance of Scully is that it has an easy-to-use and extend plugins system that will allow you to manipulate routes and content.
+A big advance of Scully is that it has an easy-to-use and extendible plugins system that will allow you to manipulate routes and content.
 
-For this article, we will set up a really simple app, just so that we will learn Cloudflare Pages.
+For this article, we will set up a really simple app, just so we can learn about Cloudflare Pages.
 
-Before we are getting started, go to Github and create a new repo, you can also go to `https://repo.new` this is an easy way to create a new repository at Github.
+Before we are get started, go to Github and create a new repo, you can also go to `https://repo.new` this is an easy way to create a new repository at Github.
 
 Clone the repo to your local machine, now let's continue by setting up a new Angular project.
 
@@ -77,7 +78,7 @@ CREATE scully/tsconfig.json (450 bytes)
 CREATE scully/plugins/plugin.ts (305 bytes)
 ```
 
-Now we are ready to use Scully with Angular, to do this we first need to build the Angular project. This can be done by running:
+We are now ready to use Scully with Angular, to do this we first need to build the Angular project. This can be done by running:
 
 ```bash
 ng build --prod
@@ -121,7 +122,7 @@ We are now ready to connect or freshly created app with Cloudflare pages.
 
 # Deploy it with Cloudflare pages
 
-We are almost ready to deploy our app, in our previous part we have configured everything to be ready for deployment. But we still need to tweak a couple of things before we can use Cloudflare pages. So let's make these changes!
+We are almost ready to deploy our app, in the previous part we configured everything to be ready for deployment. But we still need to tweak a couple of things before we can use Cloudflare pages. So let's make these changes!
 
 1. Open your package.json file and add the following snippet to the `scripts`:
 
@@ -150,6 +151,8 @@ puppeteerLaunchOptions: {
   }
 ```
 
+These changes are needed as Cloudflare runs in a VM or Docker, and we cannot have a "real" chromium spin up. This way we make sure that the bare minimum is enabled for puppeteer so that it can run in the VM or Docker.
+
 4. Now commit and push the changes to the Github repo
 
 5. Cloudflare will automatically pick up the changes, let's go back to our Cloudflare project and we will see it is building our app:
@@ -162,7 +165,7 @@ puppeteerLaunchOptions: {
 
 # Summary
 
-In this article, we have made our Angular app a Jamstack app with help of Scully and deployed it with Cloudflare pages! Below some resources that I found helpful when using Cloudflare pages and Scully. You can find the example repo [here][repo].
+In this article, we have made our Angular app a JAMstack app with the help of Scully and deployed it with Cloudflare pages! Below are some resources that I found helpful when using Cloudflare pages and Scully. You can find the example repo [here][repo].
 
 If you have any questions send me DM via my twitter profile [@jefiozie][@jefiozie]
  
