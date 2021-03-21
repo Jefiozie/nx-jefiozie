@@ -12,7 +12,7 @@ slugs:
     - ___UNPUBLISHED___km11cdi7_aM9aIMIUNqmPZwbQSvznhodCmzToqjeA
 ---
 
-In this post, we will try to explain the basics theory around the Angular CLI builders and how you can build a Custom Builder. How to build a Custom Builder will be done based on a builder we've created with a very general use case, Image Optimization.
+In this post, we will try to explain the basics theory around the Angular CLI builders and how you can build a Custom Builder. How to build a Custom Builder will be done based on a builder we've created with a very general use case, Image Optimization. Today I will only show you a simple example.
 
 # History
 
@@ -100,7 +100,7 @@ export default createBuilder(customBuilderFunc);
 
 # Summary
 
-Builders are a very useful part of the Angular CLI that will make sure the CLI is very extensible. We can use builders for a variety of tasks that are related to the workspace(s). As builders are just functions we can do "ANYTHING". I've created a "demo" builder that is optimizing images in your workspace for better web performance. You can have a look [here][repo]
+Builders are a very useful part of the Angular CLI that will make sure the CLI is very extensible. We can use builders for a variety of tasks that are related to the workspace(s). As builders are just functions we can do "ANYTHING". I've created a "demo" builder that is optimizing images in your workspace for better web performance. This builder will be in our next article where we will go a little bit deeper into, creating custom builders and how to hook them into your workspace. You can already have a look [here][repo]
 
 I hope you've enjoyed this article and if you have any questions around builder you can always DM me on [@jefiozie][@jefiozie]
 
