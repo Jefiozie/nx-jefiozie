@@ -1,7 +1,7 @@
 ---
 title: 'Angular CLI Builders'
 description: 'Create a Custom Angular CLI Builder'
-date: '2021-03-08'
+date: '2021-03-22'
 tags:
     - angular
     - builders
@@ -12,7 +12,7 @@ slugs:
     - ___UNPUBLISHED___km11cdi7_aM9aIMIUNqmPZwbQSvznhodCmzToqjeA
 ---
 
-In this post, we will try to explain the basics theory around the Angular CLI builders and how you can build a Custom Builder. How to build a Custom Builder will be done based on a builder we've created with a very general use case, Image Optimization. Today I will only show you a simple example.
+In this post, we will try to explain the basics theory around the Angular CLI builders and how you can build a Custom Builder. How to build a Custom Builder will be done based on a builder we've created with a very general use case, Image Optimization. In this article we will only show a simple example.
 
 # History
 
@@ -35,13 +35,13 @@ When this project has been found, it will look at the target, in our example, th
 Now the Angular CLI knows enough to execute the builder! 
 Below I've made a simple table that shows what builders are represented with a default Angular CLI command:
 
-| Command  | Builder  |
-|---|---|
-| build  | Browser builder |
-| serve  | Dev-Server builder |
-| test  | Karma builder  |
-| lint | TSLint builder  | ❗ this builder is deprecated from Angular v12
-| e2e| Protractor   |
+| Command  | Builder  | |
+|---|---|---|
+| build  | Browser builder | |
+| serve  | Dev-Server builder | |
+| test  | Karma builder  | |
+| lint | TSLint builder  | ❗ this builder is deprecated from Angular v12 |
+| e2e| Protractor   | |
 
 # So what is a builder then
 
@@ -67,8 +67,8 @@ Below a couple of minimal steps we need to take before we can continue with our 
 1. Npm init
 2. Git init
 3. Add dependencies (minimal needed):
-  - Typescript
-  - @angular-devkit/architect
+    - Typescript
+    - @angular-devkit/architect
 4. Add some npm scripts for building and testing our package
 5. Add a “builder.json” file
 6. Add "builders": "builders.json" to your package.json
