@@ -8,7 +8,8 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HighlightService } from '../highlight.service';
 import { ArticlesService } from '../articles.service';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, tap } from 'rxjs/operators';
+import { Frontmatter, MetaService } from '../../meta.service';
 
 declare var ng: any;
 
@@ -25,7 +26,8 @@ export class ArticleComponent implements AfterViewChecked {
   constructor(
     private route: ActivatedRoute,
     private readonly articleService: ArticlesService,
-    private highlightService: HighlightService
+    private highlightService: HighlightService,
+    private metaService: MetaService
   ) {
     this.articleService.articles$
       .pipe(
@@ -36,7 +38,14 @@ export class ArticleComponent implements AfterViewChecked {
             return title === id;
           })
         ),
-        map((articles) => articles[0])
+        map((articles) => articles[0]),
+        tap((blog: Frontmatter) => {
+          console.error(blog);
+          this.metaService.update({
+            ...blog,
+            url: `https://jefiozie.github.io${blog.route}`,
+          });
+        })
       )
       .subscribe((article) => {
         this.title = article.title;
