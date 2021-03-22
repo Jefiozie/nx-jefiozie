@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ArticlesService } from '../../blog/articles.service';
+import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
+import { ArticlesService } from '../../blog/articles.service';
+import { MetaService } from '../../meta.service';
 
 @Component({
   templateUrl: './home.component.html',
@@ -8,7 +9,12 @@ import { take } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
   latestArticles$ = this.articleService.articles$.pipe(take(1));
-  constructor(private readonly articleService: ArticlesService) {}
+  constructor(
+    private readonly articleService: ArticlesService,
+    private readonly metaService: MetaService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.metaService.resetMeta();
+  }
 }

@@ -15,7 +15,7 @@ setPluginConfig(timeToRead, {
   path: '/articles/article'
 } as timeToReadOptions);
 
-const postRenderers = [MinifyHtml];
+const postRenderers = [MinifyHtml, 'seoHrefOptimise'];
 const SitemapPlugin = getSitemapPlugin();
 setPluginConfig(SitemapPlugin, {
   urlPrefix: publicUri,
