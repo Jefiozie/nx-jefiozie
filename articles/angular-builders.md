@@ -55,7 +55,7 @@ For example, you could supply a builder to perform an entirely new task or to ch
 ```
 
 After reading this I made the following conclusion: 
->*An Angular CLI builder Is just a function that is when called, executing a task (or multiple). The Angular CLI is having an internal task-based system called Architect. This task-based system is responsible for delegating work to the builder(s)* 
+>*As a Angular Builder is just a function, you could refer it is a task. The Angular CLI is having an task-based system. This way we can say that the Angular CLI with the task-based system (called Architect) is delegating the tasks (builders).* 
 
 For me, this made it easy in my mind to link specific commands to tasks and know that they are executed with specific commands provided by the Angular CLI.
  
@@ -74,7 +74,8 @@ Below a couple of minimal steps we need to take before we can continue with our 
 6. Add "builders": "builders.json" to your package.json
 7. Add an “index.ts” file
 
-Our project structure is complete, now we need to make the `Builder`. The Angular CLI team has provided an easy way to connect our custom builder so that it can be executed with the Angular CLI. We need to import the `createBuilder` function. The `createBuilder` function is hooking up the task-based system from within the Angular CLI and lets you use your custom builder.
+Our project structure is complete ([see a full example][repo])! Now we are going to create the `Builder`, in our next article we will address how you can use/connect your custom builder with the Angular CLI.
+The Angular CLI team has provided an easy way to set up our custom builder so that it can be executed with the Angular CLI. We need to import the `createBuilder` function. The `createBuilder` function is hooking up the task-based system from within the Angular CLI and lets you use your custom builder.
 
 ```ts
 import { createBuilder, BuilderContext, BuilderOutput } from '@angular-devkit/architect'
