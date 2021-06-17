@@ -9,9 +9,8 @@ export interface timeToReadOptions {
 export const timeToReadFunc = async (routes: HandledRoute[]) => {
   const options: timeToReadOptions = getMyConfig(timeToReadFunc);
   return routes
-    .filter((route) => route.templateFile)
     .map((route) => {
-      if (route.route.startsWith(options.path)) {
+      if (route.templateFile && route.route.startsWith(options.path)) {
         const content = fs.readFileSync(route.templateFile).toString('utf-8');
         const stats = readingTime(content);
         const newRoute = {
