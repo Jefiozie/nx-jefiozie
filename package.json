@@ -44,7 +44,7 @@
     "@angular/platform-browser-dynamic": "13.1.1",
     "@angular/router": "13.1.1",
     "@scullyio/ng-lib": "latest",
-    "@scullyio/scully": "^1.0.8",
+    "@scullyio/scully": "^1.0.9",
     "core-js": "^2.5.4",
     "feed": "^4.2.1",
     "prismjs": "^1.20.0",
