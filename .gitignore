@@ -43,3 +43,6 @@ migrations.json
 #scully
 scully.blog.config.js
 scully.log
+
+.angular
+.scully
