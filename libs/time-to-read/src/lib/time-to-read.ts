@@ -1,6 +1,6 @@
 import { getMyConfig, HandledRoute, registerPlugin } from '@scullyio/scully';
 import * as fs from 'fs';
-import * as readingTime from 'reading-time';
+const readingTime =  require('reading-time');
 
 export const timeToRead = 'timeToRead';
 export interface timeToReadOptions {

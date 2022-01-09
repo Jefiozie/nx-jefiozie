@@ -43,16 +43,17 @@
     "@angular/platform-browser": "13.1.1",
     "@angular/platform-browser-dynamic": "13.1.1",
     "@angular/router": "13.1.1",
+    "@ngrx/component-store": "13.0.2",
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "^1.0.8",
+    "clipboard": "^2.0.8",
     "core-js": "^2.5.4",
     "feed": "^4.2.1",
     "prismjs": "^1.20.0",
-    "reading-time": "^1.2.1",
-    "rxjs": "6.6.3",
+    "reading-time": "^1.5.0",
+    "rxjs": "^7.5.1",
     "showdown": "^1.9.1",
-    "zone.js": "0.11.4",
-    "@ngrx/component-store": "13.0.2"
+    "zone.js": "0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "13.1.2",
