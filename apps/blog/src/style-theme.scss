@@ -1,14 +1,14 @@
 // Custom Theming for Angular Material
+@use '@angular/material' as mat;
 // For more information: https://material.angular.io/guide/theming
-@import "~@angular/material/theming";
 
-@include mat-core();
+@include mat.core();
 
-$my-custom-jb-primary: mat-palette($mat-green, 400, 400, 800);
-$my-custom-jb-accent: mat-palette($mat-green, 500,700,900);
-$my-custom-jb-warn: mat-palette($mat-red);
+$my-custom-jb-primary: mat.define-palette(mat.$green-palette, 400, 400, 800);
+$my-custom-jb-accent: mat.define-palette(mat.$green-palette, 500,700,900);
+$my-custom-jb-warn: mat.define-palette(mat.$red-palette);
 
-$my-custom-jb-theme: mat-light-theme(
+$my-custom-jb-theme: mat.define-light-theme(
   $my-custom-jb-primary,
   $my-custom-jb-accent,
   $my-custom-jb-warn
@@ -26,5 +26,5 @@ $my-custom-jb-theme: mat-light-theme(
   @include jbb-navigation-component-theme($theme);
 }
 
-@include angular-material-theme($my-custom-jb-theme);
+@include mat.all-component-themes($my-custom-jb-theme);
 @include custom-components-theme($my-custom-jb-theme);

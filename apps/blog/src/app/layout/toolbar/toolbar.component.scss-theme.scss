@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@use '@angular/material' as mat;
 
 @mixin jbb-toolbar-component-theme($theme) {
   $primary: map-get($theme, primary);
@@ -8,18 +8,18 @@
   $background: map-get($theme, background);
 
   mat-toolbar {
-    background-color: mat-color($primary, card) !important;
+    background-color: mat.get-color-from-palette($primary, card) !important;
 
     button {
       &.active {
-        color: mat-color($primary, lighter-contrast) !important;
-        background-color: mat-color($primary, lighter) !important;
+        color: mat.get-color-from-palette($primary, lighter-contrast) !important;
+        background-color: mat.get-color-from-palette($primary, lighter) !important;
       }
     }
 
     button mat-icon {
       &:hover {
-        color: mat-color($accent) !important;
+        color: mat.get-color-from-palette($accent) !important;
       }
     }
   }

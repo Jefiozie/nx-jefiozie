@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@use '@angular/material' as mat;
 
 @mixin jbb-toolbar-component-theme($theme) {
   $primary: map-get($theme, primary);
@@ -17,7 +17,7 @@
     padding-bottom: 0;
   }
   h1 {
-    color: mat-color($accent);
+    color: mat.get-color-from-palette($accent);
     padding: 5px;
     border-radius: 5px;
     width: fit-content;
