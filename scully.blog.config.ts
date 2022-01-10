@@ -3,7 +3,6 @@ import { timeToRead, timeToReadOptions } from '@jefiozie/time-to-read';
 import { RssOptions, rssPlugin } from '@jefiozie/rss-plugin';
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import { MinifyHtml } from 'scully-plugin-minify-html';
-
 import '@scullyio/scully-plugin-puppeteer'
 
 const publicUri = 'https://jefiozie.github.io';
@@ -49,7 +48,6 @@ setPluginConfig(SitemapPlugin, {
 export const config: ScullyConfig = {
   projectRoot: './apps/blog/src',
   projectName: 'blog',
-  target: 'targets',
   outDir: './dist/static',
   routes: {
     '/articles/article/:id': {
