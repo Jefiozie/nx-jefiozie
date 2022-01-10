@@ -33,4 +33,4 @@ jobs:
       - run: npm install
       - run: npm run symlinks
       - run: npx nx run-many --target=build --all --prod
-      - run: npm run scully --sr
+      - run: npm run scully --  --sr --project blog

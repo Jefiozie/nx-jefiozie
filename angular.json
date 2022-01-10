@@ -1,1 +1,251 @@
-workspace.json
+{
+  "version": 1,
+  "projects": {
+    "blog": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/blog",
+      "sourceRoot": "apps/blog/src",
+      "prefix": "jbb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/blog",
+            "index": "apps/blog/src/index.html",
+            "main": "apps/blog/src/main.ts",
+            "polyfills": "apps/blog/src/polyfills.ts",
+            "tsConfig": "apps/blog/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/blog/src/favicon.ico",
+              "apps/blog/src/assets",
+              "apps/blog/src/robots.txt"
+            ],
+            "styles": [
+              "apps/blog/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/blog/src/environments/environment.ts",
+                  "with": "apps/blog/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "blog:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "blog:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "blog:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/blog/tsconfig.app.json",
+              "apps/blog/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/blog/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/blog/jest.config.js",
+            "tsConfig": "apps/blog/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/blog/src/test-setup.ts"
+          },
+          "outputs": [
+            "coverage/apps/blog"
+          ]
+        }
+      },
+      "tags": [
+        "public"
+      ]
+    },
+    "blog-e2e": {
+      "root": "apps/blog-e2e",
+      "sourceRoot": "apps/blog-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/blog-e2e/cypress.json",
+            "tsConfig": "apps/blog-e2e/tsconfig.e2e.json",
+            "devServerTarget": "blog:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "blog:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/blog-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/blog-e2e/**"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "blog"
+      ]
+    },
+    "rss-plugin": {
+      "root": "libs/rss",
+      "sourceRoot": "libs/rss/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/rss/.eslintrc",
+            "tsConfig": [
+              "libs/rss/tsconfig.lib.json",
+              "libs/rss/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/rss/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rss/jest.config.js",
+            "tsConfig": "libs/rss/tsconfig.spec.json",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/rss"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/rss-plugin",
+            "tsConfig": "libs/rss/tsconfig.lib.json",
+            "packageJson": "libs/rss/package.json",
+            "main": "libs/rss/src/index.ts",
+            "assets": [
+              "libs/rss/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      },
+      "tags": []
+    },
+    "time-to-read": {
+      "root": "libs/time-to-read",
+      "sourceRoot": "libs/time-to-read/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/time-to-read/.eslintrc",
+            "tsConfig": [
+              "libs/time-to-read/tsconfig.lib.json",
+              "libs/time-to-read/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/time-to-read/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/time-to-read/jest.config.js",
+            "tsConfig": "libs/time-to-read/tsconfig.spec.json",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/time-to-read"
+          ]
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/time-to-read",
+            "tsConfig": "libs/time-to-read/tsconfig.lib.json",
+            "packageJson": "libs/time-to-read/package.json",
+            "main": "libs/time-to-read/src/index.ts",
+            "assets": [
+              "libs/time-to-read/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      },
+      "tags": []
+    }
+  }
+}

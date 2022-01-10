@@ -1,5 +1,5 @@
 {
-  "name": "@jefiozie/scully-plugin-time-to-read",
+  "name": "scully-plugin-time-to-read",
   "version": "0.0.5",
   "maintainers": [
     "Jeffrey Bosch <jefiozie.bosch@gmail.com> (https://jefiozie.github.io)"
