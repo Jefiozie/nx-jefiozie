@@ -45,3 +45,4 @@ scully.blog.config.js
 scully.log
 
 .angular
+.env
