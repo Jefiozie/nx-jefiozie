@@ -4,7 +4,7 @@ import { Observable, map, shareReplay } from 'rxjs';
 
 type ScullyRouteWithDescription =
   | ScullyRoute
-  | (ScullyRoute & { description: string; date: string; tags: string });
+  | (ScullyRoute & { description: string; createdAt: string; tags: string });
 @Injectable()
 export class ArticlesService {
   articles$: Observable<
@@ -15,7 +15,7 @@ export class ArticlesService {
         router.route.includes('/article/')
       )
     ),
-    map((blogs) => blogs.sort((a, b) => (a.date < b.date ? 1 : -1))),
+    map((blogs) => blogs.sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))),
     shareReplay(1)
   );
 
