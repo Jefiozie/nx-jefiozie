@@ -60,7 +60,7 @@ export const config: ScullyConfig = {
       type: NotionDomRouter,
       basePath: '/articles/article',
       postRenderers: [NotionDom],
-      databaseId: process.env.NOTION_DATABASE_ID, // required
+      databaseId: '82b81cb618c14aa2845512b82c09d6f7'
     } as NotionDomRouterPluginOptions,
   },
 };
