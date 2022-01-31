@@ -16,10 +16,22 @@
     padding: 40px 40px;
     padding-bottom: 0;
   }
-  h1 {
+  h1, h2, h3 {
     color: mat.get-color-from-palette($accent);
     padding: 5px;
     border-radius: 5px;
     width: fit-content;
+  }
+
+  blockquote {
+    border: 0;
+  }
+  blockquote {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-left-width: 4px;
+    border-style: solid;
+    border-color: #404040;
+    padding: 0.25rem 0.5rem;
   }
 }

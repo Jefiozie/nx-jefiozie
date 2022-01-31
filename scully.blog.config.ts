@@ -1,5 +1,5 @@
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
-import { timeToRead, timeToReadOptions } from '@jefiozie/time-to-read';
+// import { timeToRead, timeToReadOptions } from '@jefiozie/time-to-read';
 import { RssOptions, rssPlugin } from '@jefiozie/rss-plugin';
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import { MinifyHtml } from 'scully-plugin-minify-html';
@@ -17,9 +17,9 @@ const publicUri = 'https://jefiozie.github.io';
 //   rssPath: '/assets/rss.xml',
 // } as RssOptions);
 
-setPluginConfig(timeToRead, {
-  path: '/articles/article'
-} as timeToReadOptions);
+// setPluginConfig(timeToRead, {
+//   path: '/articles/article'
+// } as timeToReadOptions);
 
 const postRenderers = [MinifyHtml, 'seoHrefOptimise'];
 const SitemapPlugin = getSitemapPlugin();
