@@ -34,7 +34,8 @@ jobs:
       - run: npm install
       - run: npm run symlinks
       - run: npx nx run-many --target=build --all --prod
-      - run: npm run scully:blog
+      - name: Run scully
+        run: npm run scully:blog
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
