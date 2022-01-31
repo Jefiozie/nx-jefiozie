@@ -1,20 +1,25 @@
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
-import { timeToRead, timeToReadOptions } from '@jefiozie/time-to-read';
+// import { timeToRead, timeToReadOptions } from '@jefiozie/time-to-read';
 import { RssOptions, rssPlugin } from '@jefiozie/rss-plugin';
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import { MinifyHtml } from 'scully-plugin-minify-html';
 import '@scullyio/scully-plugin-puppeteer'
+import {
+  NotionDom,
+  NotionDomRouter,
+  NotionDomRouterPluginOptions
+} from '@notion-stuff/scully-plugin-notion';
 
 const publicUri = 'https://jefiozie.github.io';
-setPluginConfig(rssPlugin, {
-  title: 'RSS Feed',
-  siteUrl: publicUri,
-  rssPath: '/assets/rss.xml',
-} as RssOptions);
+// setPluginConfig(rssPlugin, {
+//   title: 'RSS Feed',
+//   siteUrl: publicUri,
+//   rssPath: '/assets/rss.xml',
+// } as RssOptions);
 
-setPluginConfig(timeToRead, {
-  path: '/articles/article'
-} as timeToReadOptions);
+// setPluginConfig(timeToRead, {
+//   path: '/articles/article'
+// } as timeToReadOptions);
 
 const postRenderers = [MinifyHtml, 'seoHrefOptimise'];
 const SitemapPlugin = getSitemapPlugin();
@@ -49,13 +54,13 @@ export const config: ScullyConfig = {
   projectRoot: './apps/blog/src',
   projectName: 'blog',
   outDir: './dist/static',
+  defaultPostRenderers: postRenderers,
   routes: {
     '/articles/article/:id': {
-      type: 'contentFolder',
-      id: {
-        folder: './articles',
-      },
-      postRenderers,
-    },
+      type: NotionDomRouter,
+      basePath: '/articles/article',
+      postRenderers: [NotionDom],
+      databaseId: process.env.NOTION_DATABASE_ID, // required
+    } as NotionDomRouterPluginOptions,
   },
 };
