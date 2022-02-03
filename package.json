@@ -26,7 +26,7 @@
     "postinstall": "ngcc --properties es2015 browser module main",
     "scully": "scully",
     "scully:blog": "dotenv scully --  --project blog",
-    "scully:serve": "scully serve",
+    "scully:serve": "dotenv scully serve",
     "symlinks": "npx symlink-dir ./dist/libs ./node_modules/@jefiozie",
     "deploy": "gh-pages -d dist/static -r https://$GH_TOKEN@github.com/Jefiozie/jefiozie.github.io.git -b master",
     "workspace-generator": "nx workspace-generator"

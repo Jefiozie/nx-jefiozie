@@ -31,13 +31,6 @@ export class ArticleComponent implements AfterViewChecked {
   ) {
     this.articleService.articles$
       .pipe(
-        map((articles) =>
-          articles.filter((article) => {
-            const id = this.route.snapshot.params.id;
-            const title = article.sourceFile.replace('.md', '');
-            return title === id;
-          })
-        ),
         map((articles) => articles[0]),
         tap((blog: Frontmatter) => {
           this.metaService.update({
@@ -48,7 +41,6 @@ export class ArticleComponent implements AfterViewChecked {
       )
       .subscribe((article) => {
         this.title = article.title;
-        this.readingTime = article?.readingTime;
       });
   }
 
