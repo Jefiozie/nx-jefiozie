@@ -1,6 +1,11 @@
 name: release
 
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        required: true
+        type: string
   # Trigger the workflow on push
   # but only for the master branch
   push:
